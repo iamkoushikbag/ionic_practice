@@ -11,13 +11,23 @@ import { MenuPage } from '../pages/menu/menu';
 import { HomePage } from '../pages/home/home';
 import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
-
+import { ReservationPage } from '../pages/reservation/reservation';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { CommentPage } from '../pages/comment/comment';
+import { IonicStorageModule } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DishProvider } from '../providers/dish/dish';
 import { LeaderProvider } from '../providers/leader/leader';
 import { PromotionProvider } from '../providers/promotion/promotion';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera';
+import { Network } from '@ionic-native/network';
+import { CallNumber } from '@ionic-native/call-number';
 
 import { baseURL } from '../shared/baseurl';
 import { FavoriteProvider } from '../providers/favorite/favorite';
@@ -30,12 +40,17 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage,
+    LoginPage,
+    RegisterPage,
+    CommentPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +60,11 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage,
+    LoginPage,
+    RegisterPage,
+    CommentPage
   ],
   providers: [
     StatusBar,
@@ -56,7 +75,13 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     PromotionProvider,
     ProcessHttpmsgProvider,
     { provide: 'BaseURL', useValue: baseURL },
-    FavoriteProvider
+    FavoriteProvider,
+    LocalNotifications,
+    EmailComposer,
+    SocialSharing,
+    Camera,
+    Network,
+    CallNumber
   ]
 })
 export class AppModule {}
